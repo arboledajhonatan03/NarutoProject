@@ -74,19 +74,18 @@ public class Personage implements Comparable<Personage>{
 	public boolean addTechnique(Technique t) throws SameObject{
 		Technique actual = first;	
 		boolean added = false;
-		if(!sameTechnique(t)) {
-			if(actual==null) {
-				first = t;
-				added = true;
-			}else {
-				while(actual!=null && !added) {
-					if(actual.getNext()==null) {
-						actual.setNext(t);
-						added = true;
-					}
-					actual = actual.getNext();
+		if(actual==null) {
+			first = t;
+			added = true;
+		}else if(!sameTechnique(t)) {
+			while(actual!=null && !added) {
+				if(actual.getNext()==null) {
+					actual.setNext(t);
+					added = true;
 				}
+				actual = actual.getNext();
 			}
+		
 		} else {
 			throw new SameObject(); 
 		}
@@ -120,10 +119,9 @@ public class Personage implements Comparable<Personage>{
 	public boolean deleteTechnique(String name) throws NoList {
 		boolean finded = false;
 		Technique actual = first;
-		if(actual==null) {
+		if(actual.getName().equals(name)) {
+			first = actual.getNext();
 			finded = true;
-			throw new NoList();
-			
 		}else {
 			while(actual!=null && !finded) {
 				if(actual.getNext().getName().equals(name)) {
@@ -135,5 +133,10 @@ public class Personage implements Comparable<Personage>{
 			}
 		}
 		return finded;
+	}
+	@Override
+	public String toString() {
+		return name + "," + personality + "," + power + ","
+				+ creationDate + "," + score + "," + next + "," + prev + "," + first;
 	}
 }

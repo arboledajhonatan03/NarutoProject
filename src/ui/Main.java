@@ -33,14 +33,13 @@ public class Main {
 		System.out.println("2. Order objects");
 		System.out.println("3. Add a object");
 		System.out.println("4. Delete a object");
-		System.out.println("5. Show a object");
-		System.out.println("6. Salir");
+		System.out.println("5. Salir");
 	}
 	
 	public void showMenu() {
 		welcome();
 		int userInput = 0;
-		while (userInput != 6){
+		while (userInput != 5){
 			showOptions();
 			System.out.println("________________________________________________________________");
 			userInput = reader.nextInt();
@@ -60,9 +59,6 @@ public class Main {
 				case 4:
 					deleteObject();
 					break;
-				case 5:
-					showObjects();
-					break;
 				}
 			}catch(InvalidOption e) {
 				
@@ -70,10 +66,6 @@ public class Main {
 		}
 	}
 	
-	private void showObjects() {
-		// TODO Auto-generated method stub
-		
-	}
 	private void deleteObject() throws InvalidOption {
 		System.out.println("Please type the option you wish: ");
 		System.out.println("1. Delete clan.");
@@ -179,5 +171,5 @@ public class Main {
 	private void search() {
 		// TODO Auto-generated method stub
 		
-	}
+	} 
 }

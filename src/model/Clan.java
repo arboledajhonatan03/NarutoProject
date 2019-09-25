@@ -62,7 +62,10 @@ public class Clan implements Comparable<Clan> {
 	public boolean addPersonage(Personage p) throws SameObject {
 		boolean added = false;
 		Personage actual = first;
-		if(!samePersonage(p)) {
+		if(actual == null) {
+			added = true;
+			first = p;
+		}else if(!samePersonage(p)) {
 			while(actual!=null && !added) {
 				if(actual.getNext()==null) {
 					actual.setNext(p);
@@ -99,6 +102,7 @@ public class Clan implements Comparable<Clan> {
 		Personage actual = first;
 		Personage prev = null;
 		if(actual==null) {
+			finded = true;
 			throw new NoList();
 		}else {
 			while(actual!=null && !finded) {
@@ -129,6 +133,11 @@ public class Clan implements Comparable<Clan> {
 			actual = actual.getNext();
 		}
 		return finded;
+	}
+	
+	@Override
+	public String toString() {
+		return name;
 	}
 	
 }

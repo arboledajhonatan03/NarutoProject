@@ -10,7 +10,8 @@ class testGame {
 		g = new Game();
 	}
 	@Test
-	void test() {
+	void testAddClan() {
+		setupEscenary1();
 		
 	}
 

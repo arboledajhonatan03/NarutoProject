@@ -63,6 +63,7 @@ class testPersonage {
 		}
 		try {
 			assertTrue(p.deleteTechnique("BlindPass"));
+			assertTrue(p.deleteTechnique("Triple"));
 		} catch (NoList e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

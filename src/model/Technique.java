@@ -31,5 +31,9 @@ public class Technique implements Comparable<Technique> {
 	public int compareTo(Technique t) {
 		return name.compareTo(t.getName());
 	}
+	@Override
+	public String toString() {
+		return name + "," + factor;
+	}
 	
 }
