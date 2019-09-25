@@ -108,7 +108,7 @@ public class Game {
 	
 	public boolean addClans(Clan c) {
 		boolean added = false;
-		for (int i = 0; i < clans.size(); i++) {
+		for (int i = 0; i < clans.size() && !added; i++) {
 			if(!sameClan(c)) {
 				clans.add(c);
 				added = true;
